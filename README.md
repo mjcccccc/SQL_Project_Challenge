@@ -10,4 +10,4 @@ In this collection, I am documenting my journey of learning SQL through end-to-e
 - **Tools Used**: MS SQL Server, SQL Server Management Studio (SSMS).
 
 ## Conclusion
-Through these SQL projects, I am not only learning the fundamentals of SQL but also applying them to real-world data challenges. Utilizing **MS SQL Server**, I am building a strong foundation in data analysis and honing my skills to become a proficient data analyst. I invite you to explore my projects, and I hope they inspire you on your own SQL learning journey!
+Through these SQL projects, I am not only learning the fundamentals of SQL but also applying them to real-world data challenges. Utilizing **MS SQL Server**, I am building a strong foundation in data analysis and honing my skills to become a proficient data analyst.
