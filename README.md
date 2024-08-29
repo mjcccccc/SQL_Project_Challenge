@@ -5,8 +5,8 @@ In this collection, I am documenting my journey of learning SQL through end-to-e
 ## Projects
 
 ### 1. Project 1: Retail Sales Analysis
-- **Description**: A comprehensive analysis of [briefly describe the dataset or problem being solved].
-- **Skills Learned**: SQL querying, data aggregation, and reporting.
+- **Description**: This SQL project aims to demonstrate the skills and techniques typically employed by data analysts when working with retail sales data. It encompasses setting up a database, conducting exploratory analysis, and addressing business queries using SQL, making it a valuable learning experience for those new to data analysis.
+- **Skills Learned**: Database Setup, Data Cleaning, Exploratory Data Analysis(EDA), SQL querying, and Solving Business Questions.
 - **Tools Used**: MS SQL Server, SQL Server Management Studio (SSMS).
 
 ## Conclusion
