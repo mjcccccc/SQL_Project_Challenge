@@ -1,4 +1,4 @@
-# SQL_Projects
+# SQL Project Challenge
 
 In this collection, I am documenting my journey of learning SQL through end-to-end guided projects, including a hands-on project developed by Zero Analyst. These projects are designed to immerse me in real-life scenarios, allowing me to enhance my SQL and Data Analytics skills. By working with **MS SQL Server**, I am gaining practical experience in data manipulation, querying, and analysis, which are essential for any aspiring data professional.
 
