@@ -3,10 +3,10 @@
 ## Project Overview
 
 **Project Title**: Retail Sales Analysis  
+**Tool**: MS SQL Server, Microsoft SQL Server Management Studio (SSMS)  
 **Database**: `Retail_SalesDB`
-**Tool**: MS SQL Server, SSMS
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. 
+This project challenge is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. 
 
 ## Objectives
 
@@ -19,27 +19,38 @@ This project is designed to demonstrate SQL skills and techniques typically used
 
 ### 1. Database Setup
 
-- **Database Creation**: The project starts by creating a database named `p1_retail_db`.
+- **Database Creation**: The project starts by creating a database named `Retail_SalesDB`.
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
-```sql
-CREATE DATABASE p1_retail_db;
+<details open>
+<summary>Click to expand!</summary>
 
-CREATE TABLE retail_sales
-(
-    transactions_id INT PRIMARY KEY,
-    sale_date DATE,	
-    sale_time TIME,
-    customer_id INT,	
-    gender VARCHAR(10),
+```sql
+DROP DATABASE IF EXISTS Retail_SalesDB;
+CREATE DATABASE Retail_SalesDB;
+USE Retail_SalesDB;
+
+-- Create table
+DROP TABLE IF EXISTS Retail_SalesDB.dbo.retail_sales;
+CREATE TABLE retail_sales(
+    transaction_id INT PRIMARY KEY,
+    sale_date DATE,
+    sale_time VARCHAR(255),
+    customer_id INT,
+    gender VARCHAR(255),
     age INT,
-    category VARCHAR(35),
+    category VARCHAR(255),    
     quantity INT,
-    price_per_unit FLOAT,	
+    price_per_unit FLOAT,
     cogs FLOAT,
-    total_sale FLOAT
-);
-```
+    total_sale INT
+)
+
+-- Alter the Data type of sale_time to TIME
+ALTER TABLE retail_sales
+ALTER COLUMN sale_time TIME;
+
+</details> ```
 
 ### 2. Data Exploration & Cleaning
 
@@ -48,23 +59,37 @@ CREATE TABLE retail_sales
 - **Category Count**: Identify all unique product categories in the dataset.
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
+<details open>
+<summary>Click to expand!</summary>
+
 ```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
 
+-- How many sales we have?
+SELECT COUNT(*) AS total_sale --Identifying the total count of record we have
+FROM retail_sales;
+
+-- How many unique customers we have?
+SELECT COUNT(DISTINCT customer_id) AS total_customer 
+from retail_sales;
+
+-- What are the categories we have?
+SELECT DISTINCT category
+FROM retail_sales;
+
+- Select all the values that is NULL
 SELECT * FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+WHERE transaction_id IS NULL OR sale_date IS NULL
+	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
+	OR age IS NULL OR category IS NULL OR quantity	IS NULL
+	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
 
+-- Delete records with missing data
 DELETE FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
-```
+WHERE transaction_id IS NULL OR sale_date IS NULL 
+	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
+	OR age IS NULL OR category IS NULL OR quantity	IS NULL
+	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
+</details> ```
 
 ### 3. Data Analysis & Findings
 
