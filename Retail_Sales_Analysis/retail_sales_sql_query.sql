@@ -28,31 +28,7 @@ CREATE TABLE retail_sales(
 ALTER TABLE retail_sales
 ALTER COLUMN sale_time TIME;
 
-/*
-		DATA CLEANING
-*/
-
-SELECT TOP 10 * 
-FROM retail_sales;
-
-SELECT COUNT(*)
-FROM retail_sales;
-
--- Select all the row that is NULL
-SELECT * FROM retail_sales
-WHERE transaction_id IS NULL OR sale_date IS NULL
-	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
-	OR age IS NULL OR category IS NULL OR quantity	IS NULL
-	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
-
--- Delete rows that have NULL value
-DELETE FROM retail_sales
-WHERE transaction_id IS NULL OR sale_date IS NULL 
-	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
-	OR age IS NULL OR category IS NULL OR quantity	IS NULL
-	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
-
--/* 
+/* 
 		DATA EXPLORATION
 */
 
@@ -68,7 +44,27 @@ from retail_sales;
 SELECT DISTINCT category
 FROM retail_sales;
 
--- DATA ANALYSIS & BUSINESS KEY PROBLEMS & ANSWERS
+/*
+		DATA CLEANING
+*/
+-- Select all the values that is NULL
+SELECT * FROM retail_sales
+WHERE transaction_id IS NULL OR sale_date IS NULL
+	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
+	OR age IS NULL OR category IS NULL OR quantity	IS NULL
+	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
+
+-- Delete records with missing data
+DELETE FROM retail_sales
+WHERE transaction_id IS NULL OR sale_date IS NULL 
+	OR sale_time IS NULL OR customer_id IS NULL OR gender IS NULL
+	OR age IS NULL OR category IS NULL OR quantity	IS NULL
+	OR price_per_unit IS NULL OR cogs IS NULL OR total_sale IS NULL;
+
+/*
+		DATA ANALYSIS & BUSINESS KEY PROBLEMS & ANSWERS
+*/
+
 -- 1. Write a SQL query to retrieve all columns for sales made on '2022-11-05:
 SELECT *
 FROM retail_sales
